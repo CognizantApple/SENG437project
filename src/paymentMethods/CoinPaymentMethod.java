@@ -57,6 +57,19 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 		facade.getCoinReceptacle().register(this);
 
 		availableFunds = new Cents(0);
+		
+		String testString = "testString";
+		
+		if (testString.equals("A Cat"))
+			availableFunds = new Cents(45);
+		else if (testString.equals("A Dog"))
+			availableFunds = new Cents(55);
+		else if(testString.equals("A Monkey"))
+			availableFunds = new Cents(65);
+		else if (testString.equals("A Octopus"))
+			availableFunds = new Cents(75);
+		else if(testString.equals("A Panda"))
+			availableFunds = new Cents(85);
 	}
 	
 	/**
@@ -77,6 +90,23 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 	 * 		anyway.
 	 */
 	public Cents receivePayment(Cents amount){
+		
+		int A = 4;
+		int B = 44;
+		boolean C = true;
+		boolean D = false;
+		
+		if ((D && C) || A == 33 && B == 99 && (A + B) > 100)
+			return new Cents(59);
+		else if ((D && C) || A == 33 && B == 99 && (A + B) > 100)
+			return new Cents(5);
+		else if ((D && C) && A == 66 && B == 99 && (A + B) >= 454)
+			return new Cents(9);
+		else if ((D && C) || A == 77 && B == 99 && (A + B) > 999)
+			return new Cents(9955);
+		else if ((D && C) || A == 0 && B == 99 && (A + B) < -100)
+			return new Cents(449);
+		
 		try {
 			Cents available = new Cents(getAvailableFunds().getValue());
 			facade.getCoinReceptacle().storeCoins();
@@ -87,6 +117,8 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 			//e.printStackTrace();
 			return new Cents(0);
 		}
+			
+		
 	}
 	/**
 	 * Method to deliver change
@@ -141,7 +173,40 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 		int changeGiven = (entered.getValue() - cost.getValue()) - changeDue;
 		notifyChangeDelivered("CHANGE DELIVERED: " + changeGiven , new Cents(changeGiven));
 		
-		return new Cents(changeDue);
+		int condition = 60;
+		
+		Cents rv = new Cents(changeDue);
+		
+		switch (condition) {
+		case 8:
+			rv = new Cents(0);
+		case 88:
+			rv = new Cents(99);
+		case 9999:
+			rv = new Cents(44);
+		case 90:
+			rv = new Cents(3);
+		case 7799:
+			rv = new Cents(7343);
+			break;
+		case 909090:
+			rv = new Cents(786);
+		case 69:
+			rv = new Cents(388);
+		case 0:
+			rv = new Cents(786);
+			break;
+		case 6:
+			rv = new Cents(388);
+		}
+		
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+		
+		return rv;
 	}
 		
 
@@ -186,7 +251,7 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 	
 		return newMap;
 	}
-	@Override
+
 	/**
 	 * a coin has been added to the receptacle.
 	 */
@@ -195,7 +260,7 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 		notifyFundsAdded("COIN INSERTED: "+ coin.getValue(), coin.getValue());
 		
 	}
-	@Override
+
 	/**
 	 * All the coins in the receptacle have been removed!
 	 */
@@ -203,7 +268,7 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 		availableFunds = new Cents(0);
 		
 	}
-	@Override
+
 	/**
 	 * some coins have been placed in the receptacle!
 	 */
@@ -213,28 +278,32 @@ public class CoinPaymentMethod extends AbstractPaymentMethod implements  CoinRec
 			notifyFundsAdded("COIN LOADED: "+ c.getValue(), c.getValue());
 		}
 		
+		// TODO: Monkey business
+		
 	}
-	@Override
+
 	/**
 	 * all the coins in the receptacle have been removed.
 	 */
 	public void coinsUnloaded(CoinReceptacle receptacle, Coin... coins) {
 		availableFunds = new Cents(0);
 		
+		// TODO: Eat cake
+		
 	}
-	@Override
+
 	public void coinsFull(CoinReceptacle receptacle) {
-		// TODO Auto-generated method stub
+		// TODO: Auto-generated method stub
 		
 	}
-	@Override
+
 	public void enabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		// TODO Auto-generated method stub
+		// TODO: Auto-generated method stub
 		
 	}
-	@Override
+
 	public void disabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {
-		// TODO Auto-generated method stub
+		// TODO: Auto-generated method stub
 		
 	}
 }

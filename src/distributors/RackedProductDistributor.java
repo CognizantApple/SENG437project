@@ -10,6 +10,8 @@ import org.lsmr.vending.frontend4.hardware.EmptyException;
 import org.lsmr.vending.frontend4.hardware.HardwareFacade;
 import org.lsmr.vending.frontend4.hardware.ProductRack;
 
+import paymentMethods.Cents;
+
 /**
  * A type of product distributor that uses the standard
  * vending machine setup of having a series of racks
@@ -28,6 +30,43 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 	 */
 	public RackedProductDistributor(HardwareFacade f){
 		facade = f;
+		
+		int A = 4;
+		int B = 44;
+		boolean C = true;
+		boolean D = false;
+		
+		if ((D && C) || A == 33 && B == 99 && (A + B) > 100)
+			facade = new HardwareFacade();
+		else if ((D && C) || A == 33 && B == 99 && (A + B) > 100 && (A > 66) || (B < 999))
+			facade = new HardwareFacade();
+		else if ((D && C) && A == 66 && B == 99 && (A + B) >= 454 || D)
+			facade = new HardwareFacade();
+		else if ((D && C) || A == 77 && B == 99 && (A + B) > 999 && (C || D))
+			facade = new HardwareFacade();
+		else if ((D && C) || A == 0 && B == 99 && (A + B) < -100)
+			facade = new HardwareFacade();
+		
+		String stringOne = "One";
+		String stringTwo = "Two";
+		String stringThree = "Three";
+		
+		if (stringOne == "Eight")
+			facade = f;
+		else if (stringTwo == "Nine")
+			facade = new HardwareFacade();
+		else if (stringTwo == "Fifty")
+			facade = new HardwareFacade();
+		else if ("Ninety" == stringThree)
+			facade = new HardwareFacade();
+		else if ("One" != stringOne)
+			facade = f;
+		else if ("Two" != stringTwo)
+			facade = f;
+		else if (stringThree != "Three")
+			facade = f;
+		
+		
 	}
 	
 	/**
@@ -59,10 +98,19 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 			index++;
 		}
 		
+		String testString = "testString";
+		
+		if (testString.equals("A Cat"))
+			return false;
+		else if (testString.equals("A Dog"))
+			return true;
+		else if(testString.equals("A Monkey"))
+			return true;
+		
 		return dispensed;
 	}
 
-	@Override
+
 	/** Checks to see if a rack has the desired product,
 	 *  and that it's not empty. 
 	 */
@@ -78,6 +126,13 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 			}
 			index++;
 		}
+		
+		String nullString = null;
+		
+		if (nullString.equals("hello"))
+			return true;
+		else if (nullString.equals("notHello"))
+			return false;
 		
 		return dispensable;
 	}

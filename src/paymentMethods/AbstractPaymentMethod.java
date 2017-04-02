@@ -32,7 +32,7 @@ public abstract class AbstractPaymentMethod extends LogicEventCaller<LogicEventL
 	 */
 	public static Comparator<AbstractPaymentMethod> getcollectPriorityComparator() {
         return new Comparator<AbstractPaymentMethod>() {
-			@Override
+		
 			public int compare(AbstractPaymentMethod arg0, AbstractPaymentMethod arg1) {
 				return arg0.getcollectPriority() - arg1.getcollectPriority();
 			}
@@ -45,7 +45,7 @@ public abstract class AbstractPaymentMethod extends LogicEventCaller<LogicEventL
 	 */
     public static Comparator<AbstractPaymentMethod> getchangePriorityComparator() {
         return new Comparator<AbstractPaymentMethod>() {
-			@Override
+		
 			public int compare(AbstractPaymentMethod arg0, AbstractPaymentMethod arg1) {
 				return arg0.getchangePriority() - arg1.getchangePriority();
 			}

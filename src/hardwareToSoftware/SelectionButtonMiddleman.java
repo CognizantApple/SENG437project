@@ -30,7 +30,7 @@ public class SelectionButtonMiddleman extends AbstractMiddleman<SelectionListene
 	 * finds the productKind that was selected and passes it
 	 * on as a selected() event.
 	 */
-	@Override
+
 	public void pressed(SelectionButton button) {
 		ProductKind p = facade.getProductKind( facade.indexOf(button) );
     	notifySelected(p);
@@ -46,9 +46,9 @@ public class SelectionButtonMiddleman extends AbstractMiddleman<SelectionListene
 		    listener.selected(p);
     }
 
-	@Override
+
 	public void enabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {}
 
-	@Override
+
 	public void disabled(AbstractHardware<? extends AbstractHardwareListener> hardware) {}
 }

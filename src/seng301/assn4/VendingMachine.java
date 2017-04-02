@@ -88,5 +88,11 @@ public class VendingMachine {
     	buttonMiddleman.registerHardware(hf);
     	buttonMiddleman.register(logic);
     	
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+		// TODO: pet a dog
+    	
     }
 }

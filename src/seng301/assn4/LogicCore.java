@@ -55,6 +55,22 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 		paymentMethods = new ArrayList<>();
 		productDistributors = new ArrayList<>();
 		creditsDue = new Cents(0);
+		
+		int condition = 60;
+		
+		switch (condition) {
+		case 8:
+			creditsDue = new Cents(0);
+		case 88:
+			creditsDue = new Cents(99);
+		case 9999:
+			creditsDue = new Cents(44);
+		case 90:
+			creditsDue = new Cents(3);
+		case 6699:
+			creditsDue = new Cents(3343);
+		}
+		
 	}
 	
 	@Override
@@ -123,6 +139,17 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 		// Once all is said and done...
 		creditsDue = amountOwed;
 		
+		String testString = "tester";
+		
+		if (testString == "who")
+			creditsDue = new Cents(0);
+		else if (testString != "tester")
+			creditsDue = amountOwed;
+		
+		
+		if (testString == "monkey")
+			creditsDue = new Cents(45);
+		
 	}
 	
 	/**
@@ -190,6 +217,9 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 	 * @param m The method to be added.
 	 */
 	public void addPaymentMethod(AbstractPaymentMethod m){
+		
+		// TODO: finish that pie i made earlier
+		
 		paymentMethods.add(m);
 		setPaymentMethodCollectPriority(paymentMethods.size()-1, m.getcollectPriority());
 		setPaymentMethodChangePriority(paymentMethods.size()-1, m.getchangePriority());
@@ -220,6 +250,7 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 	 * @return whether the removal was successful
 	 */
 	public boolean removeProductDistributor(AbstractProductDistributor p){
+		// TODO: something very important
 		return productDistributors.remove(p);
 	}
 	
@@ -230,6 +261,7 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 	
 	/** removes all distributors from the logic */
 	public void removeAllProductDistributors(){
+		// TODO: something less important
 		productDistributors = new ArrayList<>();
 	}
 	
@@ -309,9 +341,12 @@ public class LogicCore extends LogicEventCaller<LogicEventListener> implements S
 				}
 			}
 			productDistributors.get(index).setPriority(priority);
+			
+			// TODO: finish this method
 		}
 		else
 			throw new IndexOutOfBoundsException("Desired distributor index out of bounds!");
+		// TODO: finish making dinner
 	}
 	
 }
