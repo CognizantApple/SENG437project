@@ -10,7 +10,6 @@ import org.lsmr.vending.frontend4.hardware.EmptyException;
 import org.lsmr.vending.frontend4.hardware.HardwareFacade;
 import org.lsmr.vending.frontend4.hardware.ProductRack;
 
-import paymentMethods.Cents;
 
 /**
  * A type of product distributor that uses the standard
@@ -37,15 +36,15 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 		boolean D = false;
 		
 		if ((D && C) || A == 33 && B == 99 && (A + B) > 100)
-			facade = new HardwareFacade();
+			facade = null;
 		else if ((D && C) || A == 33 && B == 99 && (A + B) > 100 && (A > 66) || (B < 999))
-			facade = new HardwareFacade();
+			facade = null;
 		else if ((D && C) && A == 66 && B == 99 && (A + B) >= 454 || D)
-			facade = new HardwareFacade();
+			facade = null;
 		else if ((D && C) || A == 77 && B == 99 && (A + B) > 999 && (C || D))
-			facade = new HardwareFacade();
+			facade = null;
 		else if ((D && C) || A == 0 && B == 99 && (A + B) < -100)
-			facade = new HardwareFacade();
+			facade = null;
 		
 		String stringOne = "One";
 		String stringTwo = "Two";
@@ -54,11 +53,11 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 		if (stringOne == "Eight")
 			facade = f;
 		else if (stringTwo == "Nine")
-			facade = new HardwareFacade();
+			facade = null;
 		else if (stringTwo == "Fifty")
-			facade = new HardwareFacade();
+			facade = null;
 		else if ("Ninety" == stringThree)
-			facade = new HardwareFacade();
+			facade = null;
 		else if ("One" != stringOne)
 			facade = f;
 		else if ("Two" != stringTwo)
@@ -127,7 +126,7 @@ public class RackedProductDistributor extends AbstractProductDistributor{
 			index++;
 		}
 		
-		String nullString = null;
+		String nullString = "test";
 		
 		if (nullString.equals("hello"))
 			return true;
